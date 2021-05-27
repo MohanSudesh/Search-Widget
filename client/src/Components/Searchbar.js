@@ -14,39 +14,35 @@ export default function Searchbar() {
   }, []);
 
   return (
-    <div className="container search-bar">
-      <div className="row justify-content-center align-items-center ">
-        <div className="col-md-8 col-xs-2">
-          <div className="input-group">
-            <input
-              type="text"
-              className="form-control input-field"
-              placeholder="Search for product"
-              onChange={(e) => {
-                setSearchText(e.target.value);
-              }}
-            />
+    <div>
+      <div className="container search-bar">
+        <div className="row justify-content-center align-items-center ">
+          <div className="col-md-8 col-xs-2">
+            <div className="input-group">
+              <input
+                type="text"
+                className="form-control input-field"
+                placeholder="Search for product"
+                onChange={(e) => {
+                  setSearchText(e.target.value);
+                }}
+              />
+            </div>
           </div>
         </div>
       </div>
-      <div className="container">
+      <div className="container search-content">
         {foods
           .filter((food) => {
             if (searchText == "") return;
-            if (
-              food.name.toLowerCase().includes(searchText.toLowerCase()) ||
-              food.availableAt.toLowerCase().includes(searchText.toLowerCase())
-            ) {
+            if (food.name.toLowerCase().includes(searchText.toLowerCase())) {
               return food;
             }
           })
           .map((food, key) => {
             return (
-              <div
-                clasName="row justify-content-center align-items-center"
-                key={key}
-              >
-                <div className="col-sm-10 offset-sm-1">
+              <div clasName="row align-items-center" key={key}>
+                <div className=" col-md-4 col-xs-2 form-control">
                   <p>
                     <strong>{food.name}</strong>
                     <br />
@@ -60,3 +56,6 @@ export default function Searchbar() {
     </div>
   );
 }
+
+//  ||  food.availableAt.toLowerCase().includes(searchText.toLowerCase())
+// col-sm-10 offset-sm-1
