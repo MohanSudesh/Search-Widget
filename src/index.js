@@ -22,8 +22,8 @@ app.use(express.json());
 app.use(foodRouter);
 
 // if (process.env.NODE_ENV == "production") {
-console.log("s");
-app.use(express.static("../client/build"));
+// console.log("s");
+// app.use(express.static("../client/build"));
 // }
 
 app.listen(port, () => {
