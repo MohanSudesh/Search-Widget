@@ -18,10 +18,10 @@ app.use(express.json());
 
 app.use(foodRouter);
 
-if (process.env.NODE_ENV == "production") {
-  console.log("s");
-  app.use(express.static("../client/build"));
-}
+// if (process.env.NODE_ENV == "production") {
+console.log("s");
+app.use(express.static("../client/build"));
+// }
 
 app.listen(port, () => {
   console.log("Server is up on port " + port);
