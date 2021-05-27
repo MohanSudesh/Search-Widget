@@ -7,6 +7,9 @@ const foodRouter = require("./routers/food");
 const app = express();
 const port = process.env.PORT || 5000;
 
+console.log("s");
+app.use(express.static("../client/build"));
+
 app.use(cors());
 app.use(express.json());
 
